@@ -78,13 +78,13 @@ async def handle_list_tools() -> list[types.Tool]:
 @server.call_tool()
 async def handle_call_tool(name: str, arguments: dict[str, Any]) -> list[types.TextContent]:
     if name == "onboard_partner":
-        return [types.TextContent(type="text", content=f"Onboarding {arguments.get('partner_type')} partner: {arguments.get('partner_name')} in {arguments.get('territory', 'TBD')}")]
+        return [types.TextContent(type="text", text=f"Onboarding {arguments.get('partner_type')} partner: {arguments.get('partner_name')} in {arguments.get('territory', 'TBD')}")]
     elif name == "track_deal_reg":
-        return [types.TextContent(type="text", content=f"Deal registered: {arguments.get('deal_name')} via {arguments.get('partner')} — ${arguments.get('value'):,.0f}")]
+        return [types.TextContent(type="text", text=f"Deal registered: {arguments.get('deal_name')} via {arguments.get('partner')} — ${arguments.get('value'):,.0f}")]
     elif name == "evaluate_partner":
-        return [types.TextContent(type="text", content=f"Evaluating partner: {arguments.get('partner')} for {arguments.get('period', '30d')}")]
+        return [types.TextContent(type="text", text=f"Evaluating partner: {arguments.get('partner')} for {arguments.get('period', '30d')}")]
     elif name == "find_partners":
-        return [types.TextContent(type="text", content=f"Searching for partners in {arguments.get('industry', 'any')} in {arguments.get('location', 'any')}")]
+        return [types.TextContent(type="text", text=f"Searching for partners in {arguments.get('industry', 'any')} in {arguments.get('location', 'any')}")]
     raise ValueError(f"Unknown tool: {name}")
 
 async def main():

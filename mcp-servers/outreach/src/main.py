@@ -62,11 +62,11 @@ async def handle_list_tools() -> list[types.Tool]:
 @server.call_tool()
 async def handle_call_tool(name: str, arguments: dict[str, Any]) -> list[types.TextContent]:
     if name == "create_sequence":
-        return [types.TextContent(type="text", content=f"Building {arguments.get('steps', 5)}-step outreach sequence targeting {arguments.get('target_role', 'decision-makers')} in {arguments.get('industry', 'tech')}")]
+        return [types.TextContent(type="text", text=f"Building {arguments.get('steps', 5)}-step outreach sequence targeting {arguments.get('target_role', 'decision-makers')} in {arguments.get('industry', 'tech')}")]
     elif name == "personalize_message":
-        return [types.TextContent(type="text", content=f"Composing {arguments.get('channel')} message for {arguments.get('contact_name')} at {arguments.get('company')}")]
+        return [types.TextContent(type="text", text=f"Composing {arguments.get('channel')} message for {arguments.get('contact_name')} at {arguments.get('company')}")]
     elif name == "track_campaign":
-        return [types.TextContent(type="text", content=f"Campaign {arguments.get('campaign_id')} stats")]
+        return [types.TextContent(type="text", text=f"Campaign {arguments.get('campaign_id')} stats")]
     raise ValueError(f"Unknown tool: {name}")
 
 async def main():
